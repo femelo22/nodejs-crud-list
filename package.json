@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-crud-list",
+  "version": "1.0.0",
+  "description": "Projeto para estudar node - crud simples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/femelo22/nodejs-crud-list.git"
+  },
+  "author": "Luiz Fernando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/femelo22/nodejs-crud-list/issues"
+  },
+  "homepage": "https://github.com/femelo22/nodejs-crud-list#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

@@ -4,11 +4,24 @@ const server = express();
 
 server.use(express.json());
 
-const cursos = ['FullStack Master', 'Java Backend', 'React', 'Gestão de Negócios'];
+const cursos = [
+  {
+    id: 1,
+    name: 'FullStack Master'
+  },
+  {
+    id: 2,
+    name: 'Mergulhador Spring Boot'
+  },
+  {
+    id: 3,
+    name: 'Especialista Frontend'
+  }
+];
 
-server.get('/cursos/:index', (req, res) => {
-  const { index } = req.params;
-  return res.json(cursos[index]);
+server.get('/cursos/:id', (req, res) => {
+  const { id } = req.params;
+  return res.json(cursos[id]);
 });
 
 
@@ -17,26 +30,39 @@ server.get('/cursos', (req, res) =>{
 });
 
 server.post('/cursos', (req, res) => {
-  const { name } = req.body;
-  cursos.push(name);
+  const { id, name } = req.body;
+
+  const curso = {
+    id: id,
+    name: name
+  }
+
+  cursos.push(curso);
 
   return res.json(cursos);
 });
 
 
-server.put('/cursos/:index', (req, res) => {
-  const { index } = req.params;
+server.put('/cursos/:id', (req, res) => {
+  const { id } = req.params;
   const { name } = req.body;
 
-  cursos[index] = name;
+  const curso = {
+    id: id,
+    name: name
+  }
+
+  const index = cursos.findIndex(curso => curso.id === 1);
+
+  cursos[index].name = name;
 
   return res.json(cursos);
 });
 
-server.delete('/cursos/:index', (req, res) => {
-  const { index } = req.params;
+server.delete('/cursos/:id', (req, res) => {
+  const { id } = req.params;
 
-  cursos.splice(index, 1);
+  cursos.splice(id, 1);
 
   return res.json(cursos);
 });
